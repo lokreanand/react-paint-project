@@ -3,20 +3,34 @@ import Login from './Components/Login';
 import Register from './Components/Register'
 import { useState } from 'react';
 import {Routes, Route} from 'react-router-dom'
+import Artboard from './Components/Artboard';
+import AppContext from './Components/AppContext'
 function App() {
-  const [user,setLoginUser] = useState({
+  const [name,setName] = useState("")
+  const [email,setEmail] = useState("")
+  const user={
+    email:email,
+    name:name,
+    setName,
+    setEmail
+  }
 
-  })
   return (
-    <>          <Routes>
-                <Route exact path="/" 
-                      element={<Register />} />
+    <>      <AppContext.Provider value={user}>    
+              <Routes>
+                <Route exact path="/"
+                element={
+                  name && email ? <Artboard/>:<Login/>
+                    }/>
                   <Route exact path="/Login" 
-                      element={<Login setLoginUser={setLoginUser}/>} />
+                      element={<Login />} />
                   <Route exact path="/Register" 
                       element={<Register />} />
+                  <Route exact path="/Artboard" 
+                      element={<Artboard />} />
                   
               </Routes>
+              </AppContext.Provider>
     </>
   )
 }

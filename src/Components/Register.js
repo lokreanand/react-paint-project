@@ -46,7 +46,9 @@ const Register = () => {
           setValidated(true)
         }
         
-    
+    const login = () =>{
+      navigate("/Login")
+    }
     
     
   return (
@@ -94,7 +96,9 @@ const Register = () => {
       <Button type="submit">Register</Button>
       </Col>
         </Form>
-    
+        <Col className="mb-3" md='11'>
+      <Button onClick={login}>Login</Button>
+      </Col>
     </div>
   )
 }

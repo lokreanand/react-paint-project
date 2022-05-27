@@ -9,7 +9,7 @@ app.use(cors());
 
 
 
-mongoose.connect("mongodb://localhost:27017/auth",{
+mongoose.connect("mongodb+srv://lokreanand:Andyboy7867@emp.5pcj8.mongodb.net/mern-auth",{
     useNewUrlParser:true,
     useUnifiedTopology:true
 })

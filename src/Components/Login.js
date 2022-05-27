@@ -1,15 +1,14 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState,useEffect, useContext } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { Button, Form, Row, Col } from 'react-bootstrap';
-// import MapComponent from './Map';
+import AppContext from "./AppContext";
 
-const Login = ({setLoginUser}) => {
+
+const Login = () => {
     const [validated, setValidated] = useState(false);
-    // const [lng,setLng]=useState(-70.9)
-    // const [lat,setLat]=useState(42.5)
     const navigate=useNavigate()
-
+    const context=useContext(AppContext)
     const [user, setUser]= useState({
     email:"",  
     password:""
@@ -30,8 +29,9 @@ const Login = ({setLoginUser}) => {
             await axios.post("http://localhost:5000/login",user).then((res)=>{
             if(res.data.flag===true){
               alert("Logged in Successfully")
-              setLoginUser(res.data.user)
-              navigate("/Register")
+              context.setName(res.data.user.name)
+              context.setEmail(res.data.user.email)
+              navigate("/")
             }
             else if(res.data.flag===false){
               alert("Wrong password") 
@@ -52,7 +52,9 @@ const Login = ({setLoginUser}) => {
         }
         
     
-    
+    const register = () =>{
+      navigate("/Register")
+    }
     
   return (
     <div>
@@ -86,6 +88,9 @@ const Login = ({setLoginUser}) => {
       <Button type="submit">Login</Button>
       </Col>
         </Form>
+        <Col className="mb-3" md='11'>
+      <Button onClick={register}>Register</Button>
+      </Col>
     
     </div>
   )
