@@ -53,7 +53,7 @@ const Login = () => {
         
     
     const register = () =>{
-      navigate("/Register")
+      navigate("/")
     }
     
   return (

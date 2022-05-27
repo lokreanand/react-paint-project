@@ -9,6 +9,7 @@
     "axios": "^0.27.2",
     "bootstrap": "^5.1.3",
     "concurrently": "^7.2.1",
+    "gh-pages": "^4.0.0",
     "react": "^18.1.0",
     "react-bootstrap": "^2.4.0",
     "react-dom": "^18.1.0",
@@ -18,9 +19,12 @@
   },
   "scripts": {
     "start": "concurrently \"react-scripts start\" \"npm run server\" ",
-    "server":"node ./Backend/server",
+    "server": "node ./Backend/server",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "homepage": "https://anandreact.com",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
