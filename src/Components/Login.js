@@ -44,7 +44,8 @@ const Login = () => {
           // alert("Login successfully")
           // console.log(res.data.user)
         }).catch((e)=>{
-          console.log(1)
+          console.log(baseURL)
+          
           alert(e.message)
         })
 
