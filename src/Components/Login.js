@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { Button, Form, Row, Col } from 'react-bootstrap';
 import AppContext from "./AppContext";
+import { baseURL } from '../authAPI';
 
 
 const Login = () => {
@@ -26,7 +27,7 @@ const Login = () => {
           event.stopPropagation(); 
         }
         else{
-            await axios.post("http://localhost:5000/login",user).then((res)=>{
+            await axios.post(`${baseURL}/login`,user).then((res)=>{
             if(res.data.flag===true){
               alert("Logged in Successfully")
               context.setName(res.data.user.name)
