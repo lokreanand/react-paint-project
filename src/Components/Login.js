@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { Button, Form, Row, Col } from 'react-bootstrap';
 import AppContext from "./AppContext";
-import { baseURL } from '../authAPI';
+// import { baseURL } from '../authAPI';
 
 
 const Login = () => {
@@ -14,6 +14,7 @@ const Login = () => {
     email:"",  
     password:""
   })
+  const baseURL=process.env.REACT_APP_BASE_URL
   const onChange = (e) =>{
       setUser({ ...user, [e.target.name]: e.target.value });
   }
