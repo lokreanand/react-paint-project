@@ -29,7 +29,7 @@ const Register = () => {
         }
         else{
           if(user.email.length)
-          await axios.post("register",user).then((res)=>{
+          await axios.post("http://localhost:5000/register",user).then((res)=>{
           if(res.data.flag===true){
             alert("Registered Successfully")
             navigate("/Login")

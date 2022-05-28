@@ -28,7 +28,7 @@ const Login = () => {
           event.stopPropagation(); 
         }
         else{
-            await axios.post("/login",user).then((res)=>{
+            await axios.post("http://localhost:5000/login",user).then((res)=>{
             if(res.data.flag===true){
               alert("Logged in Successfully")
               context.setName(res.data.user.name)
