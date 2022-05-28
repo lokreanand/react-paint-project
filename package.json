@@ -23,9 +23,6 @@
     "server": "node ./Backend/server",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "homepage": "https://lokreanand.github.io/react-paint-project/",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
