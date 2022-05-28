@@ -11,7 +11,6 @@ const Register = () => {
     // const [lng,setLng]=useState(-70.9)
     // const [lat,setLat]=useState(42.5)
     const navigate=useNavigate()
-    const baseURL=process.env.REACT_APP_BASE_URL
     const [user, setUser]= useState({
     email:"",  
     password:"",
@@ -30,7 +29,7 @@ const Register = () => {
         }
         else{
           if(user.email.length)
-          await axios.post(`${baseURL}/register`,user).then((res)=>{
+          await axios.post("register",user).then((res)=>{
           if(res.data.flag===true){
             alert("Registered Successfully")
             navigate("/Login")

@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { Button, Form, Row, Col } from 'react-bootstrap';
 import AppContext from "./AppContext";
+
 // import { baseURL } from '../authAPI';
 
 
@@ -14,7 +15,6 @@ const Login = () => {
     email:"",  
     password:""
   })
-  const baseURL=process.env.REACT_APP_BASE_URL
   const onChange = (e) =>{
       setUser({ ...user, [e.target.name]: e.target.value });
   }
@@ -28,7 +28,7 @@ const Login = () => {
           event.stopPropagation(); 
         }
         else{
-            await axios.post(`${baseURL}/login`,user).then((res)=>{
+            await axios.post("/login",user).then((res)=>{
             if(res.data.flag===true){
               alert("Logged in Successfully")
               context.setName(res.data.user.name)
@@ -44,14 +44,13 @@ const Login = () => {
           // navigate("/")
           // alert("Login successfully")
           // console.log(res.data.user)
-        }).catch((e)=>{
-          console.log(baseURL)
-          
+        }).catch((e)=>{          
           alert(e.message)
         })
 
           }
           setValidated(true)
+        
         }
         
     
